@@ -27,3 +27,9 @@ class Project(models.Model):
     description = models.TextField(max_length=250)
 
     isValid = models.BooleanField(default=False)
+    
+    creator = models.OneToOneField(
+        to = Student, 
+        on_delete = models.CASCADE, 
+        related_name = "project_owner"
+    )
