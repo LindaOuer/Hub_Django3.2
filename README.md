@@ -27,7 +27,7 @@ requirements.txt contains all the packages you will need for this work.
 
 ## Create a project
 
-> django-admin startproject innovationHub .
+> django-admin startproject HubProject .
 
 ## Run the server
 
