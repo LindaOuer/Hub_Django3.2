@@ -41,3 +41,29 @@ class Project(models.Model):
         null=True,
         related_name="project_coach"
     )
+    
+    members = models.ManyToManyField(
+        to = Student,
+        blank = True,
+        related_name = 'Les_Membres',
+        through = 'MembershipInProject',
+    )
+    
+    
+class MembershipInProject (models.Model):
+    project = models.ForeignKey(
+        Project,
+        on_delete = models.CASCADE,
+    )
+    
+    student = models.ForeignKey(
+        Student,
+        on_delete = models.CASCADE,
+    )
+    
+    time_allocated_by_member = models.IntegerField(
+        'Temps alloué par le membre',
+    )
+    
+    class Meta:
+        unique_together = ("project", "student")
