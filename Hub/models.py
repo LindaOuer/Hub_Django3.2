@@ -33,3 +33,11 @@ class Project(models.Model):
         on_delete = models.CASCADE, 
         related_name = "project_owner"
     )
+    
+    supervisor = models.ForeignKey(
+        to=Coach,
+        on_delete=models.SET_NULL,
+        blank=True,
+        null=True,
+        related_name="project_coach"
+    )
