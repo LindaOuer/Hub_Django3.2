@@ -26,6 +26,8 @@ class User(models.Model):
             is_Esprit_Email
         ]
     )
+    def __str__(self):
+        return f"{self.first_name} {self.last_name}"
 
 
 class Student(User):
@@ -71,6 +73,9 @@ class Project(models.Model):
         through = 'MembershipInProject',
     )
     
+    def __str__(self):
+        return self.project_name
+    
     
 class MembershipInProject (models.Model):
     project = models.ForeignKey(
@@ -86,6 +91,10 @@ class MembershipInProject (models.Model):
     time_allocated_by_member = models.IntegerField(
         'Temps alloué par le membre',
     )
+    
+    def __str__(self):
+        return f"Member: {self.student.last_name} {self.student.first_name} in {self.project.project_name}"
+
     
     class Meta:
         unique_together = ("project", "student")
