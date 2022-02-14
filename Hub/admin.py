@@ -14,10 +14,20 @@ class StudentAdmin(admin.ModelAdmin):
         ('last_name', 'first_name'),
         'email'
     )
-
+@admin.register(Coach)
+class CoachAdmin(admin.ModelAdmin):
+    list_display = (
+        'last_name',
+        'first_name',
+        'email'
+    )
+    fields = (
+        ('last_name', 'first_name'),
+        'email'
+    )
 
 admin.site.register(Student, StudentAdmin)
 
-admin.site.register(Coach)
+#admin.site.register(Coach)
 
 admin.site.register(Project)
