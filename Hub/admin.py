@@ -38,6 +38,7 @@ class CoachAdmin(admin.ModelAdmin):
         ('last_name', 'first_name'),
         'email'
     )
+    search_fields = ['last_name']
 
 admin.site.register(Student, StudentAdmin)
 
