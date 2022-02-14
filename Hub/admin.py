@@ -4,6 +4,16 @@ from .models import *
 # Register your models here.
 #admin.site.register([Project, Student, Coach])
 
+class ProjectInline(admin.TabularInline):
+    model = Project
+    fieldsets = [
+        (
+            None,
+            {
+                'fields': ['project_name']
+            }
+        )
+    ]
 class StudentAdmin(admin.ModelAdmin):
     list_display = (
         'last_name',
@@ -14,6 +24,9 @@ class StudentAdmin(admin.ModelAdmin):
         ('last_name', 'first_name'),
         'email'
     )
+    inlines = [
+        ProjectInline
+    ]
 @admin.register(Coach)
 class CoachAdmin(admin.ModelAdmin):
     list_display = (
