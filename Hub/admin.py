@@ -40,8 +40,53 @@ class CoachAdmin(admin.ModelAdmin):
     )
     search_fields = ['last_name']
 
+class ProjectAdmin(admin.ModelAdmin):
+    list_display = (
+        'project_name',
+        'project_duration',
+        'creator',
+        'supervisor'
+    )
+
+    fieldsets = (
+        (
+            'Etat',
+            {
+                'fields': ('isValid',)
+            }
+        ),
+        (
+            'A Propos',
+            {
+                'classes': ('collapse',),
+                'fields': (
+                    'project_name',
+                    (
+                        'creator',
+                        'supervisor',
+                    ),
+                    'needs',
+                    'description',
+                ),
+            }
+        ),
+        (
+            'Durées',
+            {
+                'fields': (
+                    (
+                        'project_duration',
+                        'time_allocated'
+                    ),
+                )
+            }
+        ),
+    )
+    
+    empty_value_display = '-empty-'
+
 admin.site.register(Student, StudentAdmin)
 
 #admin.site.register(Coach)
 
-admin.site.register(Project)
+admin.site.register(Project, ProjectAdmin)
