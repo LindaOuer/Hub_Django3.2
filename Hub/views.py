@@ -1,3 +1,5 @@
+from pyexpat import model
+from django.views.generic import ListView
 from django.shortcuts import render, get_object_or_404
 from django.http import HttpResponse
 
@@ -43,3 +45,9 @@ def details_Student404(request, id):
             'student': student,
         }
     )
+
+
+class StudentListView(ListView):
+    model = Student
+    template_name = "Hub/list_students.html"  # default: student_list
+    context_object_name = "students"  # default: object_list

@@ -1,6 +1,4 @@
-{% extends "base.html" %}
-
-{% block content %} 
+{% extends "base.html" %} {% block content %}
 <table>
     <tr>
         <td>First Name</td>
@@ -8,11 +6,11 @@
         <td>Email</td>
     </tr>
     {% for s in students %}
-        <tr>
-            <td>{{ s.first_name }} </td>
-            <td>{{ s.last_name }} </td>
-            <td>{{ s.email }} </td>
-        </tr>
+    <tr>
+        <td>{{ s.first_name }}</td>
+        <td>{{ s.last_name }}</td>
+        <td>{{ s.email }}</td>
+    </tr>
     {% endfor %}
 </table>
 {% endblock content %}
