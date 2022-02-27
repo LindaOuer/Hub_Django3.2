@@ -47,6 +47,12 @@ class ProjectAdmin(admin.ModelAdmin):
         'creator',
         'supervisor'
     )
+    
+    #date_hierarchy = 'updated_at'
+    # radio_fields = {"supervisor": admin.VERTICAL}
+    # readonly_fields = ('created_at',)
+    
+    autocomplete_fields = ['supervisor']
 
     fieldsets = (
         (
