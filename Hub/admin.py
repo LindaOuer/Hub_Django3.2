@@ -88,5 +88,6 @@ class ProjectAdmin(admin.ModelAdmin):
 admin.site.register(Student, StudentAdmin)
 
 #admin.site.register(Coach)
+admin.site.register(MembershipInProject)
 
 admin.site.register(Project, ProjectAdmin)
