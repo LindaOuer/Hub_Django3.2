@@ -1,4 +1,4 @@
-from django.contrib import admin
+from django.contrib import admin, messages
 
 from .models import *
 
@@ -90,7 +90,7 @@ class ProjectAdmin(admin.ModelAdmin):
             else:
                 message = f"{rows_updated} projects were"
             self.message_user(request, level='success',
-                            message="%s successfully marked as not valid" % message)
+                              message="%s successfully marked as not valid" % message)
 
     set_to_No_Valid.short_description = "Refuse"
     actions = [set_Valid, 'set_to_No_Valid']
