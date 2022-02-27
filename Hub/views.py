@@ -1,4 +1,4 @@
-from django.shortcuts import render
+from django.shortcuts import render, get_object_or_404
 from django.http import HttpResponse
 
 
@@ -25,6 +25,17 @@ def list_Students(request):
 
 def details_Student(request, id):
     student = Student.objects.get(id=id)
+    return render(
+        request,
+        'Hub/details_Student.html',
+        {
+            'student': student,
+        }
+    )
+
+
+def details_Student404(request, id):
+    student = get_object_or_404(Student, id=id)
     return render(
         request,
         'Hub/details_Student.html',
