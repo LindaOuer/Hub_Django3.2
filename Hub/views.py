@@ -21,3 +21,14 @@ def list_Students(request):
             'students': list,
         },
     )
+
+
+def details_Student(request, id):
+    student = Student.objects.get(id=id)
+    return render(
+        request,
+        'Hub/details_Student.html',
+        {
+            'student': student,
+        }
+    )
